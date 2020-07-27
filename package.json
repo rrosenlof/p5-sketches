@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "p5-emojis",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "p5.js sketches by rrosenlof",
   "version": "0.1.0",
   "license": "0BSD",
   "scripts": {
