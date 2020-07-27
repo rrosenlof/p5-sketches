@@ -14,9 +14,15 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "compass-vertical-rhythm": "^1.4.5",
     "gatsby": "^2.23.12",
+    "gatsby-plugin-typography": "^2.5.10",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-p5": "^1.3.6",
+    "react-typography": "^0.16.19",
+    "typography": "^0.16.19",
+    "typography-theme-twin-peaks": "^0.16.19"
   },
   "devDependencies": {
     "prettier": "2.0.5"
