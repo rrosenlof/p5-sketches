@@ -4,9 +4,9 @@ import '../../static/styles.css'
 
 export default function Home() {
   return (
-    <div className="body">
+    <div>
       <h1>Sketches</h1>
-      <p>Made with <a href='https://p5js.org/' target="_">p5.js</a></p>
+      <p>Made with <a href='https://p5js.org/' target="_">p5.js</a> by <a href='https://github.com/rrosenlof'>@rrosenlof</a></p>
       <P5Sketch></P5Sketch>
     </div>
   )
