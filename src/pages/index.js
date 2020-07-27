@@ -1,20 +1,46 @@
 import React from "react"
 import P5Sketch from "../components/sketch"
 import '../../static/styles.css'
+import { EMOJIS } from '../../static/constants.js'
 
 export default class Home extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      strings: ['1', '2', '3', '4'],
+      strings: [],
+      disable: false
     }
 
-    this.handleInputChange = this.handleInputChange.bind(this);
+    this.addChar = this.addChar.bind(this);
+    this.removeChar = this.removeChar.bind(this);
   }
 
-  handleInputChange() {
+  addChar() {
     let s = [...this.state.strings];
-    s.push("j"); // Adding a test char to array of strings...
+    let added = false;
+    let char = ''
+    while (!added && s.length < EMOJIS.length) {
+      char = EMOJIS[Math.floor(Math.random()*EMOJIS.length)]
+      if (s.indexOf(char) === -1) {
+        added = !added;
+      } 
+    }
+
+    if (s.length <= EMOJIS.length) {
+      this.setState({
+        disable: true
+      })
+    }
+    
+    s.push(char); // Adding a test char to array of strings...
+    this.setState({
+      strings: s,
+    });
+  }
+
+  removeChar() {
+    let s = [...this.state.strings];
+    s.pop();
     this.setState({
       strings: s,
     });
@@ -25,9 +51,13 @@ export default class Home extends React.Component {
       <div>
         <h1>Sketches</h1>
         <p>Made with <a href='https://p5js.org/' target="_">p5.js</a> by <a href='https://github.com/rrosenlof'>@rrosenlof</a></p>
-        <button onClick={this.handleInputChange}>
-          Add char
+        <button onClick={this.addChar} disabled={this.state.disable}>
+          Add
         </button>
+        <button onClick={this.removeChar}>
+          Remove Last
+        </button>
+        <br />
         {this.state.strings}
         <P5Sketch strings={this.state.strings}></P5Sketch>
       </div>
