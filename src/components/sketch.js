@@ -2,14 +2,22 @@ import React from 'react';
 import Sketch from "react-p5";
 
 export default class P5Sketch extends React.Component {
-  state = {
-    cols: 40,
-    rows: 40,
-    s: 700,
-    factor: 0.03,
-    strings: this.props.strings
+  constructor(props) {
+    super(props)
+    this.state = {
+      cols: 40,
+      rows: 40,
+      s: 700,
+      factor: 0.03,
+      strings: props.strings
+    }
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.strings !== prevProps.strings) {
+      this.setState({ strings: this.props.strings })
+    }
+  }
 
   setup = (p5, canvasParentRef) => {
     var step = this.state.s / this.state.cols
@@ -31,11 +39,11 @@ export default class P5Sketch extends React.Component {
         var i = p5.floor(p5.map(cx * cy, -0.5, 0.45, 0, this.state.strings.length - 1));
         p5.text(this.state.strings[i], x * step + 3, y * step);
 
-        console.log(this.state.strings[i])
+        // console.log(this.state.strings[i])
       }
     }
 
-    p5.noLoop();
+    // p5.noLoop();
   };
 
   handleInputChange = event => {
@@ -48,6 +56,10 @@ export default class P5Sketch extends React.Component {
   }
 
   render() {
-    return <Sketch setup={this.setup} draw={this.draw} />
+    return (
+      <div>
+        <Sketch setup={this.setup} draw={this.draw} />
+      </div>
+    )
   }
 }

@@ -3,36 +3,33 @@ import P5Sketch from "../components/sketch"
 import '../../static/styles.css'
 
 export default class Home extends React.Component {
-  state = {
-    strings: ''
+  constructor(props) {
+    super(props)
+    this.state = {
+      strings: ['1', '2', '3', '4'],
+    }
+
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-  handleInputChange = event => {
-    let s = [...this.state.strings]
-    s.push(event.target.value)
+  handleInputChange() {
+    let s = [...this.state.strings];
+    s.push("j"); // Adding a test char to array of strings...
     this.setState({
       strings: s,
-    })
+    });
   }
 
   render() {
-    let sketch = '';
-    if (this.state.strings){
-      sketch = <P5Sketch strings={this.state.strings}></P5Sketch>;
-    } else {
-      sketch = ''
-    }
     return (
       <div>
         <h1>Sketches</h1>
         <p>Made with <a href='https://p5js.org/' target="_">p5.js</a> by <a href='https://github.com/rrosenlof'>@rrosenlof</a></p>
-        <form>
-          <input type="text" onChange={this.handleInputChange}></input>
-        </form>
-        {/* <P5Sketch strings={this.state.strings}></P5Sketch> */}
-        {sketch}
-        
-        
+        <button onClick={this.handleInputChange}>
+          Add char
+        </button>
+        {this.state.strings}
+        <P5Sketch strings={this.state.strings}></P5Sketch>
       </div>
     )
   }
