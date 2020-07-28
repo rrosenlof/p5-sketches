@@ -5,10 +5,10 @@ export default class P5Sketch extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      cols: 40,
+      cols: 30,
       rows: 40,
-      s: 700,
-      factor: 0.03,
+      s: 500,
+      factor: 0.3,
       strings: props.strings
     }
   }
