@@ -26,7 +26,7 @@ export default class Home extends React.Component {
       } 
     }
 
-    if (s.length <= EMOJIS.length) {
+    if (s.length == EMOJIS.length) {
       this.setState({
         disable: true
       })
@@ -46,17 +46,37 @@ export default class Home extends React.Component {
     });
   }
 
+  removeEmoji = event => {
+    let s = [...this.state.strings];
+    let i = s.indexOf(event.target.value);
+    s.splice(i,1)
+    this.setState({
+      strings: s
+    })
+  }
+
+  addEmoji = event => {
+    let s = [...this.state.strings];
+    s.push(event.target.value);
+    this.setState({
+      strings: s
+    })
+  }
+
   render() {
     return (
       <div>
         <h1>Sketches</h1>
         <p>Made with <a href='https://p5js.org/' target="_">p5.js</a> by <a href='https://github.com/rrosenlof'>@rrosenlof</a></p>
-        <button onClick={this.addChar} disabled={this.state.disable}>
+        <button onClick={this.addEmoji} value='a'>🍊</button>
+
+        <button onClick={this.removeEmoji} value='a'>🍊</button>
+        {/* <button onClick={this.addChar} disabled={this.state.disable}>
           Add
         </button>
         <button onClick={this.removeChar}>
           Remove Last
-        </button>
+        </button> */}
         <br />
         {this.state.strings}
         <P5Sketch strings={this.state.strings}></P5Sketch>
