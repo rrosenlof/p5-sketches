@@ -28,10 +28,12 @@ export default class Home extends React.Component {
         <h1>Sketches</h1>
         <p>Made with <a href='https://p5js.org/' target="_">p5.js</a> by <a href='https://github.com/rrosenlof'>@rrosenlof</a></p>
         <P5Sketch strings={this.state.strings}></P5Sketch>
+        <div className='buttons'>
           {EMOJIS.map((value, index) => {
             return <button key={index} onClick={this.addEmoji} value={value}>{value}</button>
           })}
-          <br />
+        </div>
+        <br />
         <p style={{innerHeight: `1rem`}}>{this.state.strings}</p>
         
       </div>

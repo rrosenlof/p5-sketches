@@ -5,10 +5,10 @@ export default class P5Sketch extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      cols: 30,
-      rows: 40,
-      s: 500,
-      factor: 0.3,
+      cols: 20,
+      rows: 20,
+      s: 550,
+      factor: 0.01,
       strings: props.strings
     }
   }
@@ -21,8 +21,8 @@ export default class P5Sketch extends React.Component {
 
   setup = (p5, canvasParentRef) => {
     var step = this.state.s / this.state.cols
-    p5.createCanvas(this.state.s, this.state.s - step).parent(canvasParentRef);
-    p5.textSize(step);
+    p5.createCanvas(this.state.s + step*.2, this.state.s - step*.8).parent(canvasParentRef);
+    p5.textSize(step*.8);
     p5.fill(240)
   };
 
@@ -32,7 +32,7 @@ export default class P5Sketch extends React.Component {
 
     for (let y = 1; y < this.state.rows; y++) {
       for (let x = 0; x < this.state.cols; x++) {
-        var n = p5.noise(x * this.state.factor, y * this.state.factor, p5.frameCount * 0.01) * 2;
+        var n = p5.noise(x * this.state.factor, y * this.state.factor, p5.frameCount * 0.005) * 2;
         n = (n - p5.int(n)) * 3;
         var cx = p5.sin(n);
         var cy = p5.cos(n);

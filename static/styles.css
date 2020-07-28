@@ -11,3 +11,12 @@ canvas {
 h1 {
     margin-top: 1rem;
 }
+
+.buttons button {
+    padding: 0 .25rem;
+    margin: 0 .3rem .4rem .3rem;
+    background-color: #fff;
+    border: 2px solid darkslategray;
+    border-radius: 4px;
+    width: 2.25rem;
+}
