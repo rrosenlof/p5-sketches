@@ -2,12 +2,13 @@ import React from "react"
 import P5Sketch from "../components/sketch"
 import '../../static/styles.css'
 import { EMOJIS } from '../../static/constants.js'
+import Layout from "../components/layout"
 
 export default class Home extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      strings: [],
+      strings: ['🥩','🍑','🧀','🥦','🧊','🍇'],
     }
 
     this.addEmoji = this.addEmoji.bind(this);
@@ -24,7 +25,7 @@ export default class Home extends React.Component {
 
   render() {
     return (
-      <div>
+      <Layout>
         <h1>Sketches</h1>
         <p>Made with <a href='https://p5js.org/' target="_">p5.js</a> by <a href='https://github.com/rrosenlof'>@rrosenlof</a></p>
         <P5Sketch strings={this.state.strings}></P5Sketch>
@@ -35,8 +36,7 @@ export default class Home extends React.Component {
         </div>
         <br />
         <p style={{innerHeight: `1rem`}}>{this.state.strings}</p>
-        
-      </div>
+      </Layout>
     )
   }
 }
