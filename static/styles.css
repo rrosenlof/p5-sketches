@@ -15,7 +15,7 @@ a {
 }
 
 canvas {
-    margin: 0 30px; 
+    /* margin: 0 30px;  */
     border: 15px solid #200b00;
     width: 100%;
 }

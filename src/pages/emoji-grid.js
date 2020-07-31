@@ -5,8 +5,8 @@ import { EMOJIS } from '../../static/constants.js'
 import Layout from "../components/layout"
 
 export default class EmojiGrid extends React.Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.state = {
       strings: ['🥩', '🍑', '🧀', '🥦', '🧊', '🍇'],
       factor: 0.01,
