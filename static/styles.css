@@ -5,6 +5,15 @@ body {
     background-color: rgb(255, 248, 246);
 }
 
+::selection {
+    background-color: #2b2b2b;
+    color: #fff;
+}
+
+a {
+    text-shadow: none;
+}
+
 canvas {
     margin: 0 30px; 
     border: 15px solid #200b00;

@@ -42,17 +42,18 @@ export default class EmojiGrid extends React.Component {
         <div>
           <h4>Grid Size:</h4>
           <input name='grid' id='emoji-slider' type="range" min="3" max="75" step="1" value={this.state.grid} onChange={this.changeFactor} />
-          <input name='grid' id='emoji-input' type='number' value={this.state.grid} onChange={this.changeFactor} min="3" max="75" step="1"/>
+          <input readOnly='readonly' name='grid' id='emoji-input' type='number' value={this.state.grid} onChange={this.changeFactor} min="3" max="75" step="1" />
+          
         </div>
         <div>
           <h4>Noise Factor:</h4>
-          <input name='factor' id='emoji-slider' type="range" min="0.0001" max="0.5" step="0.0001" value={this.state.factor} onChange={this.changeFactor} />
-          <input name='factor' id='emoji-input' type='number' value={this.state.factor} onChange={this.changeFactor} min='0.0001' max='0.5' step="0.0001"/>
+          <input name='factor' id='emoji-slider' type="range" min="0.0001" max="1" step="0.0001" value={this.state.factor} onChange={this.changeFactor} />
+          <input name='factor' id='emoji-input' type='number' value={this.state.factor} onChange={this.changeFactor} min='0.0001' max='1' step="0.0001" />
         </div>
         <div>
           <h4>Frame:</h4>
           <input name='frame' id='emoji-slider' type="range" min="0.00001" max="0.025" step="0.00001" value={this.state.frame} onChange={this.changeFactor} />
-          <input name='frame' id='emoji-input' type='number' value={this.state.frame} onChange={this.changeFactor} min='0.00001' max='0.025' step="0.00001"/>
+          <input name='frame' id='emoji-input' type='number' value={this.state.frame} onChange={this.changeFactor} min='0.00001' max='0.025' step="0.00001" />
         </div>
         <div className='buttons'>
           <h4>Characters:</h4>
