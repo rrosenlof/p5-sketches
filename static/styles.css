@@ -2,15 +2,16 @@ body {
     max-width: 700px;
     margin: 0 auto;
     padding: 0 1.2rem;
+    background-color: rgb(255, 248, 246);
 }
 
 canvas {
     margin: 0 30px; 
-    border: 15px solid #0e0e0e;
+    border: 15px solid #200b00;
     width: 100%;
 }
 
-h1 {
+h1, h2, h3, h4, h5 {
     margin-top: 1rem;
 }
 
@@ -23,10 +24,11 @@ h1 {
     width: 2.25rem;
 }
 
-#factor-button {
-    padding: .3rem .25rem;
-    margin: 0 .3rem .4rem .3rem;
-    background-color: #fff;
-    border: 2px solid darkslategray;
-    border-radius: 4px;
+#emoji-slider {
+    width: 400px;
+}
+
+#emoji-input {
+    width: 100px;
+    margin-left: 1rem;
 }

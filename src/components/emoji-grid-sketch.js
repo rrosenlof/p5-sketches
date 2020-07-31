@@ -1,15 +1,15 @@
 import React from 'react';
 import Sketch from "react-p5";
 
-export default class P5Sketch extends React.Component {
+export default class EmojiGridSketch extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      cols: 20,
-      rows: 20,
+      grid: props.grid,
       s: 550,
       factor: props.factor,
-      strings: props.strings
+      strings: props.strings,
+      frame: props.frame
     }
   }
 
@@ -20,22 +20,28 @@ export default class P5Sketch extends React.Component {
     if (this.props.factor !== prevProps.factor) {
       this.setState({ factor: this.props.factor })
     }
+    if (this.props.frame !== prevProps.frame) {
+      this.setState({ frame: this.props.frame })
+    }
+    if (this.props.grid !== prevProps.grid) {
+      this.setState({ grid: this.props.grid })
+    }
   }
 
   setup = (p5, canvasParentRef) => {
-    var step = this.state.s / this.state.cols
+    var step = this.state.s / this.state.grid
     p5.createCanvas(this.state.s + step*.2, this.state.s - step*.8).parent(canvasParentRef);
-    p5.textSize(step*.8);
     p5.fill(240)
   };
 
   draw = (p5) => {
     p5.background(0);
-    var step = this.state.s / this.state.cols
+    var step = this.state.s / this.state.grid
+    p5.textSize(step*.8);
 
-    for (let y = 1; y < this.state.rows; y++) {
-      for (let x = 0; x < this.state.cols; x++) {
-        var n = p5.noise(x * this.state.factor, y * this.state.factor, p5.frameCount * 0.005) * 2;
+    for (let y = 1; y < this.state.grid; y++) {
+      for (let x = 0; x < this.state.grid; x++) {
+        var n = p5.noise(x * this.state.factor, y * this.state.factor, p5.frameCount * this.state.frame) * 2;
         n = (n - p5.int(n)) * 3;
         var cx = p5.sin(n);
         var cy = p5.cos(n);
@@ -48,15 +54,6 @@ export default class P5Sketch extends React.Component {
 
     // p5.noLoop();
   };
-
-  handleInputChange = event => {
-    const target = event.target
-    const value = target.value
-    const name = target.name
-    this.setState({
-      [name]: value,
-    })
-  }
 
   render() {
     return (

@@ -1,17 +1,17 @@
 import React from "react"
-import P5Sketch from "../components/sketch"
+import EmojiGridSketch from "../components/emoji-grid-sketch"
 import '../../static/styles.css'
 import { EMOJIS } from '../../static/constants.js'
 import Layout from "../components/layout"
-
-const factor_range = [0.0001, 0.001, 0.005, 0.01, 0.05, 0.1, 0.5, 1, 10]
 
 export default class EmojiGrid extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       strings: ['🥩', '🍑', '🧀', '🥦', '🧊', '🍇'],
-      factor: 0.01
+      factor: 0.01,
+      frame: 0.003,
+      grid: 40,
     }
 
     this.addEmoji = this.addEmoji.bind(this);
@@ -28,19 +28,34 @@ export default class EmojiGrid extends React.Component {
   }
 
   changeFactor = event => {
-    let f = Math.floor(Math.random() * factor_range.length)
+    const name = event.target.name
     this.setState({
-      factor: factor_range[f]
+      [name]: event.target.value
     })
   }
 
   render() {
     return (
       <Layout>
-        <P5Sketch strings={this.state.strings} factor={this.state.factor}></P5Sketch>
-        <button id='factor-button' key='factor' onClick={this.changeFactor} value={this.state.factor}>Change Factor</button>
-        <p>Current factor: {this.state.factor}</p>
+        <h2>Emoji Grid</h2>
+        <EmojiGridSketch grid={this.state.grid} frame={this.state.frame} strings={this.state.strings} factor={this.state.factor}></EmojiGridSketch>
+        <div>
+          <h4>Grid Size:</h4>
+          <input name='grid' id='emoji-slider' type="range" min="3" max="75" step="1" value={this.state.grid} onChange={this.changeFactor} />
+          <input name='grid' id='emoji-input' type='number' value={this.state.grid} onChange={this.changeFactor} min="3" max="75" step="1"/>
+        </div>
+        <div>
+          <h4>Factor:</h4>
+          <input name='factor' id='emoji-slider' type="range" min="0.0001" max="0.5" step="0.0001" value={this.state.factor} onChange={this.changeFactor} />
+          <input name='factor' id='emoji-input' type='number' value={this.state.factor} onChange={this.changeFactor} min='0.0001' max='0.5' step="0.0001"/>
+        </div>
+        <div>
+          <h4>Frame:</h4>
+          <input name='frame' id='emoji-slider' type="range" min="0.00001" max="0.025" step="0.00001" value={this.state.frame} onChange={this.changeFactor} />
+          <input name='frame' id='emoji-input' type='number' value={this.state.frame} onChange={this.changeFactor} min='0.00001' max='0.025' step="0.00001"/>
+        </div>
         <div className='buttons'>
+          <h4>Characters:</h4>
           {EMOJIS.map((value, index) => {
             return <button key={index} onClick={this.addEmoji} value={value}>{value}</button>
           })}
