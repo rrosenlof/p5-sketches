@@ -17,7 +17,7 @@ h1, h2, h3, h4, h5 {
 
 .buttons button {
     padding: 0 .25rem;
-    margin: 0 .3rem .4rem .3rem;
+    margin: 0 .5rem .4rem 0;
     background-color: #fff;
     border: 2px solid darkslategray;
     border-radius: 4px;

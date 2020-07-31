@@ -45,7 +45,7 @@ export default class EmojiGrid extends React.Component {
           <input name='grid' id='emoji-input' type='number' value={this.state.grid} onChange={this.changeFactor} min="3" max="75" step="1"/>
         </div>
         <div>
-          <h4>Factor:</h4>
+          <h4>Noise Factor:</h4>
           <input name='factor' id='emoji-slider' type="range" min="0.0001" max="0.5" step="0.0001" value={this.state.factor} onChange={this.changeFactor} />
           <input name='factor' id='emoji-input' type='number' value={this.state.factor} onChange={this.changeFactor} min='0.0001' max='0.5' step="0.0001"/>
         </div>
