@@ -8,7 +8,7 @@ export default class P5Sketch extends React.Component {
       cols: 20,
       rows: 20,
       s: 550,
-      factor: 0.01,
+      factor: props.factor,
       strings: props.strings
     }
   }
@@ -16,6 +16,9 @@ export default class P5Sketch extends React.Component {
   componentDidUpdate(prevProps) {
     if (this.props.strings !== prevProps.strings) {
       this.setState({ strings: this.props.strings })
+    }
+    if (this.props.factor !== prevProps.factor) {
+      this.setState({ factor: this.props.factor })
     }
   }
 
