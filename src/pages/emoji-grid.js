@@ -1,10 +1,9 @@
-import React from "react"
-import EmojiGridSketch from "../components/emoji-grid-sketch"
-import '../../static/styles.css'
+import React from "react";
+import P5 from "../components/emoji-grid/p5-emoji-grid";
+import Layout from "../components/layout";
 import { EMOJIS } from '../../static/constants.js'
-import Layout from "../components/layout"
 
-export default class EmojiGrid extends React.Component {
+export default class Sketch2 extends React.Component {
   constructor() {
     super()
     this.state = {
@@ -38,7 +37,7 @@ export default class EmojiGrid extends React.Component {
     return (
       <Layout>
         <h2>Emoji Grid</h2>
-        <EmojiGridSketch grid={this.state.grid} frame={this.state.frame} strings={this.state.strings} factor={this.state.factor}></EmojiGridSketch>
+        <P5 grid={this.state.grid} frame={this.state.frame} strings={this.state.strings} factor={this.state.factor} />
         <div>
           <h4>Grid Size:</h4>
           <input name='grid' id='emoji-slider' type="range" min="3" max="75" step="1" value={this.state.grid} onChange={this.changeFactor} />
