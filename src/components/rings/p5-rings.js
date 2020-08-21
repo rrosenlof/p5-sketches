@@ -6,17 +6,30 @@ export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      grid: props.grid
+      rings: props.rings,
+      stroke: props.stroke,
+      spacing: props.spacing,
+      // inner: props.inner,
     }
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.grid !== prevProps.grid) {
-      this.setState({ grid: this.props.grid })
+    if (this.props.rings !== prevProps.rings) {
+      this.setState({ rings: this.props.rings })
     }
+    if (this.props.stroke !== prevProps.stroke) {
+      this.setState({ stroke: this.props.stroke })
+    }
+    if (this.props.spacing !== prevProps.spacing) {
+      this.setState({ spacing: this.props.spacing })
+    }
+    // if (this.props.inner !== prevProps.inner) {
+    //   this.setState({ inner: this.props.inner })
+    // }
   }
 
   render() {
-    return <P5Wrapper grid={this.state.grid} sketch={Sketch} />
+    return <P5Wrapper 
+    rings={this.state.rings} stroke={this.state.stroke} spacing={this.state.spacing} sketch={Sketch} />
   }
 }
