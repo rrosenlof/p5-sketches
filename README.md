@@ -1,6 +1,6 @@
 # About
 
-Sketches made using [p5.js](https://p5js.org), displayed in a [Gatsby JS](https://www.gatsbyjs.org/) site.
+Sketches made using [p5.js](https://p5js.org), displayed in a [Gatsby JS](https://www.gatsbyjs.org/) site. Currently hosted by [Surge](surge.sh) at http://p5p5p5.surge.sh/
 
 ## To Run Locally:
 
