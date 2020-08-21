@@ -67,3 +67,7 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+# New page templates
+src/components/new-sketch/
+src/pages/new-page.js
