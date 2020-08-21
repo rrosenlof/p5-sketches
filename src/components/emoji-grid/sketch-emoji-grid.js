@@ -1,9 +1,9 @@
 export default function Sketch(p5) {
   let s = 550;
-  let grid = 40;
-  let factor = 0.01;
-  let strings = ['e']
-  let frame = .003;
+  let grid =40;
+  let factor;
+  let strings;
+  let frame;
 
   p5.setup = () => {
     var step = s / grid
