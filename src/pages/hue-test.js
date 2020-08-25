@@ -1,19 +1,21 @@
 import React from "react"
 import '../../static/styles.css'
-import Layout from "../components/layout"
+// import Layout from "../components/layout"
 import * as hq from 'hue-queue'
 
 export default class Home extends React.Component {
   constructor() {
     super();
-    const pal = this.getPalette()
+    const pal = this.getPalettes()
 
     this.state = {
       pal: pal
     }
   }
 
-  getPalette() {
+  getPalettes() {
+    var randomColor = hq.getRandomColor();
+    console.log(randomColor);
     return hq.getAll();
   }
 

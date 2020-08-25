@@ -18,7 +18,7 @@
     "compass-vertical-rhythm": "^1.4.5",
     "gatsby": "^2.23.12",
     "gatsby-plugin-typography": "^2.5.10",
-    "hue-queue": "^1.0.0",
+    "hue-queue": "^1.0.2",
     "rc-slider": "^9.3.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
