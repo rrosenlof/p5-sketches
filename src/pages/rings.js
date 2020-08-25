@@ -1,6 +1,7 @@
 import React from "react";
 import P5 from "../components/rings/p5-rings";
 import Layout from "../components/layout";
+import * as hq from 'hue-queue'
 
 export default class Sketch2 extends React.Component {
   constructor() {
@@ -9,7 +10,7 @@ export default class Sketch2 extends React.Component {
       rings: 40,
       stroke: 5,
       spacing: 8,
-      inner: 3,
+      color: hq.getRandomColor()
     }
 
     // binding may be needed here
@@ -23,13 +24,19 @@ export default class Sketch2 extends React.Component {
     })
   }
 
+  changeColor = () => {
+    this.setState({
+      color: hq.getRandomColor()
+    })
+  }
+
   render() {
     return (
       <Layout>
         <h2>Rings</h2>
         <div style={{display: 'flex'}}>
           <div style={{ flex: `1`, marginRight: `1rem`}}>
-            <P5 rings={this.state.rings} stroke={this.state.stroke} spacing={this.state.spacing} />
+            <P5 rings={this.state.rings} stroke={this.state.stroke} spacing={this.state.spacing} color={this.state.color} />
           </div>
           <div style={{ flex: `1`}}>
             <div>
@@ -46,6 +53,10 @@ export default class Sketch2 extends React.Component {
               <h4>Ring Spacing:</h4>
               <input name='spacing' id='id' type="range" min="1" max="100" step="1" value={this.state.spacing} onChange={this.changeFactor} />
               <input readOnly='readonly' name='spacing' id='emoji-input' type='number' value={this.state.spacing} onChange={this.changeFactor} min="1" max="100" step="1" />
+            </div>
+            <div>
+              <h4>Color:</h4>
+              <button type="button" onClick={this.changeColor}>Change Color</button>
             </div>
             {/* <div>
           <h4>Inner Ring Diameter:</h4>

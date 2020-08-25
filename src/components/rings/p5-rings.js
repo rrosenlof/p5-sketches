@@ -9,6 +9,7 @@ export default class App extends React.Component {
       rings: props.rings,
       stroke: props.stroke,
       spacing: props.spacing,
+      color: props.color,
       // inner: props.inner,
     }
   }
@@ -23,13 +24,13 @@ export default class App extends React.Component {
     if (this.props.spacing !== prevProps.spacing) {
       this.setState({ spacing: this.props.spacing })
     }
-    // if (this.props.inner !== prevProps.inner) {
-    //   this.setState({ inner: this.props.inner })
-    // }
+    if (this.props.color !== prevProps.color) {
+      this.setState({ color: this.props.color })
+    }
   }
 
   render() {
     return <P5Wrapper 
-    rings={this.state.rings} stroke={this.state.stroke} spacing={this.state.spacing} sketch={Sketch} />
+    rings={this.state.rings} stroke={this.state.stroke} spacing={this.state.spacing} color={this.state.color} sketch={Sketch} />
   }
 }
