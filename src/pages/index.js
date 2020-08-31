@@ -13,6 +13,7 @@ export default class Home extends React.Component {
         <ul>
           <li><Link to='/emoji-grid'>Emoji Grid</Link>: A Perlin noise field using various Emojis as characters</li>
           <li><Link to='/rings'>Rings</Link>: Concurrent circles with Perlin noise</li>
+          <li><Link to='/clock'>Clock</Link>: A scrolling digital clock face</li>
         </ul>
         </div>
         <p style={{ fontStyle: `italic`, fontSize: `90%`}}><b>Warning:</b> Some of these sketches have flashing images or designs that may affect those prone to seizures or epilepsy</p>
