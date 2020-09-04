@@ -9,31 +9,32 @@ export default class Home extends React.Component {
     const pal = this.getPalettes()
 
     this.state = {
-      pal: pal
+      pals: pal,
+      pal_size: 4
     }
   }
 
   getPalettes() {
-    var randomColor = hq.getRandomColor();
-    console.log(randomColor);
     return hq.getAll();
   }
 
   render() {
-    const pals = []
-    for (const [key, value] of this.state.pal.entries()) {
-      pals.push(<li key={key}>  
-        <p>{value.name}:</p>
-        <div style={{ backgroundColor: value.background, padding: `40px`, width: `290px`}}>
-        {value.colors.map((s) => <div key={s} style={{ height: `40px`, width: `200px`, border: `3px ${value.stroke} solid`, margin: `10px 0`, backgroundColor: s }}></div>)}
-        </div>
-        </li>)
-    }
-
     return (
-      <div style={{ backgroundColor: `#fff`}}>
+      <div>
         <h1>Testing Hue Queue</h1>
-        <ul style={{ listStyleType: 'none' }}>{pals}</ul>
+        <label>Palette Size (0-5): </label>
+        <input placeholder={this.state.pal_size} type='number' min='1' max='5' step='1' onChange={(e) => this.setState({ pal_size: e.target.value })} />
+        <ul style={{ listStyleType: 'none' }}>
+          {this.state.pals.filter(pal => pal.hex.colors.length == this.state.pal_size)
+          .map(filteredPal => (
+            <li key={filteredPal.name}>
+              <p>{filteredPal.name}:</p>
+              <div style={{ backgroundColor: filteredPal.hex.background, padding: `40px`, width: `290px` }}>
+                {filteredPal.hex.colors.map((s) => <div key={s} style={{ height: `40px`, width: `200px`, border: `3px ${filteredPal.hex.stroke} solid`, margin: `10px 0`, backgroundColor: s }}></div>)}
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     )
   }
