@@ -17,6 +17,8 @@ export default class Home extends React.Component {
         </ul>
         </div>
         <p style={{ fontStyle: `italic`, fontSize: `90%`}}><b>Warning:</b> Some of these sketches have flashing images or designs that may affect those prone to seizures or epilepsy</p>
+
+        <Link to='/hue-test'>Hue Queue Palettes</Link>
       </Layout>
     )
   }

@@ -47,3 +47,45 @@ h1, h2, h3, h4, h5 {
 /* .rings-sliders {
   
 } */
+
+/* Hue Queue */
+.flex-ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: .7rem 0!important;
+}
+
+.flex-ul > li {
+  width: 225px;
+  margin: 0 2rem 1.3rem 0;
+}
+
+.palette {
+  box-shadow: 5px 5px 9px 0px #b1a29e;
+  padding: 40px;
+}
+
+.hue-ul {
+  margin-left: 0;
+  list-style-type: none;
+}
+
+.pal-span {
+  background-color: rgba(0,0,0,.1);
+  color: #ffffff;
+  padding: 3px;
+  font-size: .5rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.li-detail{
+  font-size: .7rem;
+  margin: .4rem .4rem 0 0;
+  text-align: right;
+}
+
+.li-detail p {
+  margin-bottom: 0;
+}
